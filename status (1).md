@@ -1,29 +1,23 @@
 # Status Report
 
 #### Your name
-
-TODO
+Saniyah Davis
 
 #### Your section leader's name
-
-TODO
+Professor Rosen
 
 #### Project title
-
-TODO
+Flappy Hooter
 
 ***
 
 Short answers for the below questions suffice. If you want to alter your plan for your project (and obtain approval for the same), be sure to email your section leader directly!
 
 #### What have you done for your project so far?
-
-TODO
+We have installed Pip and Pygame in order to correctly code our game in Python. We have also found our sprite image, background image, and music. We have our base code to get the game running. 
 
 #### What have you not done for your project yet?
-
-TODO
+We still need to make changes to the code to add in our characters, background, music. We also want to create a restart button for when the game ends.
 
 #### What problems, if any, have you encountered?
-
-TODO
+Figuring out how to download Pip.
