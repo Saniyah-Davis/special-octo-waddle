@@ -19,17 +19,22 @@ def menu():
                     game()
 
 def game():
-    image = pygame.image.load('images/background image temple.jpeg')
+    image = pygame.image.load('images/skywalk.jpg')
     image = pygame.transform.scale(image, (831,519))
     bgx = 0 
+
+    player = pygame.image.load('images/owl sprite.png')
+    player = pygame.transform.rotozoom(player,0,0.2)
     while True:
         screen.blit(image,(bgx-831,0))
         screen.blit(image,(bgx,0))
         screen.blit(image,(bgx+831,0))
 
-        bgx = bgx - .08
+        bgx = bgx - .1
         if bgx <= -831:
             bgx = 0
+
+        screen.blit(player,(50,325))
 
         pygame.display.update()
         for event in pygame.event.get():
@@ -37,6 +42,6 @@ def game():
                 pygame.display.quit()
                 exit()
             if event.type == pygame.KEYDOWN:
-                if event.pos[0] in range(300,325) and event.pos[1] in range(200,228):
+                if event.pos[0] in range(295,365) and event.pos[1] in range(130,200):
                     print('space')
 menu()
