@@ -1,4 +1,5 @@
 import pygame
+import random
 
 screen = pygame.display.set_mode((831,519))
 pygame.display.set_caption('Run, Hooter, Run')
@@ -25,6 +26,16 @@ def game():
 
     player = pygame.image.load('images/owl sprite.png')
     player = pygame.transform.rotozoom(player,0,0.2)
+    player_y = 200
+    gravity = .8
+    #jumpcount = 0
+    jump = False
+
+    cherry = pygame.image.load('images/basketball.png')
+    cherry = pygame.transform.rotozoom(cherry, 0,0.8)
+    cherry_x = 800
+    cherry_speed = .1
+
     while True:
         screen.blit(image,(bgx-831,0))
         screen.blit(image,(bgx,0))
@@ -34,7 +45,22 @@ def game():
         if bgx <= -831:
             bgx = 0
 
-        screen.blit(player,(50,325))
+        p_rect = screen.blit(player,(50, player_y))
+        if player_y < 200:
+            player_y += gravity
+        if jump == True:
+            player_y = player_y - 2
+            if player_y < 0:
+                player_y = 0
+                
+        c_rect = screen.blit(cherry,(cherry_x,200))
+        cherry_x -= cherry_speed
+        if cherry_x < -50:
+            cherry_x = random.randint(700,800)
+            cherry_speed = random.randint(1,5)
+
+        if p_rect.colliderect(c_rect):
+            return
 
         pygame.display.update()
         for event in pygame.event.get():
@@ -42,6 +68,7 @@ def game():
                 pygame.display.quit()
                 exit()
             if event.type == pygame.KEYDOWN:
-                if event.pos[0] in range(295,365) and event.pos[1] in range(130,200):
-                    print('space')
+                jump = True
+            if event.type == pygame.KEYUP:
+                jump = False
 menu()
