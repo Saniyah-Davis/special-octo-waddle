@@ -3,6 +3,9 @@ import random
 
 screen = pygame.display.set_mode((831,519))
 pygame.display.set_caption('Run, Hooter, Run')
+obstacles = ['images/rosen head sprite.jpg','images/t.jpg']
+
+"""'images/cherry.png', 'images/basketball.png',"""
 
 def menu():
     image = pygame.image.load('images/menu play.jpg')
@@ -31,10 +34,10 @@ def game():
     #jumpcount = 0
     jump = False
 
-    cherry = pygame.image.load('images/football.png')
+    cherry = pygame.image.load(random.choice(obstacles))
     cherry = pygame.transform.rotozoom(cherry, 0,0.8)
     cherry_x = 800
-    cherry_speed = .1
+    cherry_speed = .5
 
     while True:
         screen.blit(image,(bgx-831,0))
@@ -52,7 +55,7 @@ def game():
             player_y = player_y - 2
             if player_y < 0:
                 player_y = 0
-                
+                    
         c_rect = screen.blit(cherry,(cherry_x,400))
         cherry_x -= cherry_speed
         if cherry_x < -50:
