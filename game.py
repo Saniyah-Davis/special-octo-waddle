@@ -20,7 +20,7 @@ def menu():
                     game()
 
 def game():
-    image = pygame.image.load('images/skywalk.jpg')
+    image = pygame.image.load('images/background image temple.jpeg')
     image = pygame.transform.scale(image, (831,519))
     bgx = 0 
 
