@@ -26,12 +26,12 @@ def game():
 
     player = pygame.image.load('images/owl sprite.png')
     player = pygame.transform.rotozoom(player,0,0.2)
-    player_y = 200
+    player_y = 400
     gravity = .8
     #jumpcount = 0
     jump = False
 
-    cherry = pygame.image.load('images/basketball.png')
+    cherry = pygame.image.load('images/football.png')
     cherry = pygame.transform.rotozoom(cherry, 0,0.8)
     cherry_x = 800
     cherry_speed = .1
@@ -46,18 +46,18 @@ def game():
             bgx = 0
 
         p_rect = screen.blit(player,(50, player_y))
-        if player_y < 200:
+        if player_y < 400:
             player_y += gravity
         if jump == True:
             player_y = player_y - 2
             if player_y < 0:
                 player_y = 0
                 
-        c_rect = screen.blit(cherry,(cherry_x,200))
+        c_rect = screen.blit(cherry,(cherry_x,400))
         cherry_x -= cherry_speed
         if cherry_x < -50:
             cherry_x = random.randint(700,800)
-            cherry_speed = random.randint(1,5)
+            cherry_speed = random.uniform(.5,1)
 
         if p_rect.colliderect(c_rect):
             return
