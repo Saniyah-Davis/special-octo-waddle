@@ -3,9 +3,7 @@ import random
 
 screen = pygame.display.set_mode((831,519))
 pygame.display.set_caption('Run, Hooter, Run')
-obstacles = ['images/rosen head sprite.jpg','images/t.jpg']
-
-"""'images/cherry.png', 'images/basketball.png',"""
+obstacles = ['images/rosen sprite.png','images/t.png','images/cherry.png', 'images/basketball.png']
 
 def menu():
     image = pygame.image.load('images/menu play.jpg')
@@ -36,7 +34,8 @@ def game():
 
     cherry = pygame.image.load(random.choice(obstacles))
     cherry = pygame.transform.rotozoom(cherry, 0,0.8)
-    cherry_x = 800
+    cherry_x = 900
+    cherry_y = 400
     cherry_speed = .5
 
     while True:
@@ -56,10 +55,12 @@ def game():
             if player_y < 0:
                 player_y = 0
                     
-        c_rect = screen.blit(cherry,(cherry_x,400))
+        c_rect = screen.blit(cherry,(cherry_x,cherry_y))
         cherry_x -= cherry_speed
-        if cherry_x < -50:
-            cherry_x = random.randint(700,800)
+        if cherry_x < -100:
+            cherry = pygame.image.load(random.choice(obstacles))
+            cherry_x = 900
+            cherry_y = player_y
             cherry_speed = random.uniform(.5,1)
 
         if p_rect.colliderect(c_rect):
@@ -75,3 +76,6 @@ def game():
             if event.type == pygame.KEYUP:
                 jump = False
 menu()
+
+def instructions():
+    
