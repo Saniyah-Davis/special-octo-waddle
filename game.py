@@ -1,3 +1,7 @@
+"""Sources Used for Code: 
+https://www.techwithtim.net/tutorials/game-development-with-python/side-scroller-pygame/scoring-end-screen/
+https://www.youngwonks.com/blog/How-to-Make-a-Side-Scroller-Game-using-Python-and-PyGame"""
+
 import pygame
 import random
 
@@ -60,14 +64,14 @@ def game():
     obs = pygame.transform.rotozoom(obs, 0,0.8)
     obs_x = 1100
     obs_y = random.randint(0,400)
-    obs_speed = random.uniform(.5,1)
+    obs_speed = random.uniform(.5,2)
 
 #obstacle 2
     obs2 = pygame.image.load(random.choice(obstacles))
     obs2 = pygame.transform.rotozoom(obs2, 0,0.8)
     obs2_x = 1600
     obs2_y = random.randint(0,400)
-    obs2_speed = random.uniform(.5,1)
+    obs2_speed = random.uniform(.5,2)
 
     while True:
         global score
@@ -100,14 +104,14 @@ def game():
             obs = pygame.transform.rotozoom(obs, 0,0.8)
             obs_x = 1100
             obs_y = random.randint(0,400)
-            obs_speed = random.uniform(.5,1)
+            obs_speed = random.uniform(.5,2)
 
         if obs2_x < -100:
             obs2 = pygame.image.load(random.choice(obstacles))
             obs2 = pygame.transform.rotozoom(obs2, 0,0.8)
             obs2_x = 1600
             obs2_y = random.randint(0,400)
-            obs2_speed = random.uniform(.5,1)
+            obs2_speed = random.uniform(.5,2)
               
         if p_rect.colliderect(o_rect) or p_rect.colliderect(o2_rect):
             pygame.mixer.music.pause()
@@ -129,7 +133,8 @@ def game():
 def scoreboard():
     largeFont = pygame.font.SysFont('lucidasansregular', 30) # Font object
     text = largeFont.render('Score: ' + str(score), 1, (0,0,0),(255,255,255)) # create our text
-    screen.blit(text, (700, 10)) # draw the text to the screen
+    textW = text.get_width()
+    screen.blit(text, (1030-textW, 10)) # draw the text to the screen
     pygame.display.update()
 
 def gameover():
