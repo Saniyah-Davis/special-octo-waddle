@@ -1,5 +1,8 @@
 # special-octo-waddle
-Run Hooter Run video: 
+Project Name: Run, Hooter, Run
+Group Members: Salma Abounasra, Saniyah Davis
+Year: Class of 2026
+Run Hooter Run video: https://youtu.be/n5Cwl2IKkUs
 
 The very first difficulty we faced was downloading pygame. We're used to downloading programs with a click of a button, but we had to learn how to use the command prompt on both MacOS and Windows in order to install  pygame. 
 
